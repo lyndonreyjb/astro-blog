@@ -1,0 +1,94 @@
+---
+import { getCollection } from "astro:content";
+import BlogPost from "@/components/BlogPost.astro";
+import Layout from "../../../layouts/Layout.astro";
+import Tags from "@/components/Tags.astro";
+
+export async function getStaticPaths({ paginate }) {
+  const allPosts = await getCollection("posts");
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
+
+  // Generate paginated paths for each tag
+  return uniqueTags.flatMap((tag) => {
+    // Filter and sort posts by publication date
+    const filteredPosts = allPosts
+      .filter((post) => post.data.tags.includes(tag))
+      .sort(
+        (a, b) =>
+          new Date(b.data.pubDate).valueOf() -
+          new Date(a.data.pubDate).valueOf(),
+      );
+
+    return paginate(filteredPosts, {
+      params: { tag },
+      pageSize: 6,
+      props: {
+        allTags: uniqueTags, // Pass allTags for use in sidebar or other components
+      },
+    });
+  });
+}
+
+const { page, allTags } = Astro.props;
+const { tag } = Astro.params;
+---
+
+<Layout pageTitle={tag}>
+  <div class="max-w-7xl mx-auto pt-2">
+    <aside class="px-4 py-6">
+      <h2
+        class="text-2xl font-semibold text-neutral-800 dark:text-white mb-6 capitalize"
+      >
+        {tag}
+      </h2>
+      <Tags tags={allTags} currentTag={tag} basePath="/pedalboards" />
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 px-4 py-6">
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          page.data.map((post) => (
+            <li class="flex justify-center">
+              <BlogPost
+                url={`/posts/${post.slug}/`}
+                title={post.data.title}
+                image={post.data.image.url}
+                alt={post.data.image.alt}
+                description={post.data.description}
+                date={post.data.pubDate}
+                tags={post.data.tags}
+              />
+            </li>
+          ))
+        }
+      </ul>
+
+      <nav class="flex justify-between items-center mt-8">
+        {
+          page.url.prev ? (
+            <a
+              href={page.url.prev}
+              class="px-4 py-2 bg-neutral-200 dark:bg-neutral-700 rounded hover:bg-neutral-300 dark:hover:bg-neutral-600"
+            >
+              Previous
+            </a>
+          ) : null
+        }
+        <span>Page {page.currentPage} of {page.lastPage}</span>
+        {
+          page.url.next ? (
+            <a
+              href={page.url.next}
+              class="px-4 py-2 bg-neutral-200 dark:bg-neutral-700 rounded hover:bg-neutral-300 dark:hover:bg-neutral-600"
+            >
+              Next
+            </a>
+          ) : null
+        }
+      </nav>
+    </main>
+  </div>
+</Layout>

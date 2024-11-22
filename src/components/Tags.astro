@@ -1,0 +1,41 @@
+---
+interface Props {
+  tags: string[]; // List of tags
+  currentTag?: string; // Optional, highlights the current tag
+  basePath?: string; // Optional, base path for tag links
+}
+
+// Props declaration
+const { tags, currentTag, basePath = "/tags" }: Props = Astro.props;
+---
+
+<div  class="flex flex-wrap gap-3" >
+  <a
+    href="/pedalboards"
+    class={`capitalize px-3 py-2 text-sm rounded-md bg-neutral-100 dark:bg-neutral-900 
+    text-neutral-700 dark:text-neutral-100  
+    transition-colors inline-block ${
+      !currentTag
+        ? "bg-yellow-400 dark:bg-yellow-400 dark:text-neutral-900 font-semibold"
+        : ""
+    }`}
+  >
+    View All
+  </a>
+  {
+    tags.map((tag) => (
+      <a
+        href={`${basePath}/${tag}`}
+        class={`capitalize px-3 py-2 text-sm rounded-md bg-neutral-100 dark:bg-neutral-900 
+      text-neutral-700 dark:text-neutral-100  
+      transition-colors inline-block ${
+        tag === currentTag
+          ? "bg-yellow-400 dark:bg-yellow-400  dark:text-neutral-900  font-semibold"
+          : ""
+      }`}
+      >
+        {tag}
+      </a>
+    ))
+  }
+</div>

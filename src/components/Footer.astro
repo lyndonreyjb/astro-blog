@@ -1,0 +1,71 @@
+---
+
+---
+
+<footer
+  class="py-12 border-t-2 bg-white dark:bg-neutral-900 border-t-neutral-100 dark:border-t-neutral-800"
+>
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Left Side: Copyright & Branding -->
+      <div class="space-y-4">
+        <small class="text-base">
+          Copyright &copy; <span id="copyright"></span> | All rights reserved
+        </small>
+        <p class="text-base">
+          Designed by <a
+            href="https://lyndonrey.vercel.app/"
+            target="_blank"
+            class="text-yellow-400 hover:text-yellow-500">Lyndon Rey</a
+          >
+        </p>
+      </div>
+
+      <!-- Center: Footer Links -->
+      <div class="flex justify-center space-x-8 text-base">
+        <a href="/about" class="hover:text-yellow-400">About</a>
+        <a href="/terms" class="hover:text-yellow-400">Terms</a>
+        <a href="/privacy" class="hover:text-yellow-400">Privacy</a>
+        <a href="/contact" class="hover:text-yellow-400">Contact</a>
+      </div>
+
+      <!-- Right Side: Social Links -->
+      <div class="flex justify-center space-x-6">
+        <a
+          href="https://twitter.com"
+          class="text-white hover:text-yellow-400"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-twitter"></i>
+          <!-- Font Awesome Twitter Icon -->
+        </a>
+        <a
+          href="https://facebook.com"
+          class="text-white hover:text-yellow-400"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-facebook"></i>
+          <!-- Font Awesome Facebook Icon -->
+        </a>
+        <a
+          href="https://instagram.com"
+          class="text-white hover:text-yellow-400"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-instagram"></i>
+          <!-- Font Awesome Instagram Icon -->
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const copyrightSpan = document.querySelector("#copyright");
+  if (copyrightSpan) {
+    copyrightSpan.textContent = new Date().getFullYear().toString();
+  }
+</script>

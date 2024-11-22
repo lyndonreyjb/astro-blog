@@ -1,0 +1,55 @@
+---
+title: "Dream Guitar Rig Setup"
+pubDate: 2024-11-21
+description: "A breakdown of my go-to guitar rig for live performances and studio sessions."
+author: "Joseph"
+image:
+  url: "https://images.unsplash.com/photo-1495711015780-fd46fc6b852d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  alt: "A stunning pedalboard with colorful effects pedals and a classic guitar amplifier."
+tags: ["guitar", "gear", "setup"]
+---
+
+# Dream Guitar Rig Setup
+
+Published on: 2024-11-21
+
+As a guitarist, my rig plays a huge role in shaping my sound. Here’s a breakdown of my dream guitar setup for both live performances and studio work.
+
+## Guitars
+
+1. **Fender American Professional II Stratocaster**  
+   A versatile beast, perfect for anything from blues to rock. I love the comfortable neck and the classic tone from the single-coil pickups.
+
+2. **Gibson Les Paul Standard '50s**  
+   When I need a warm, fat tone for heavier songs, this Les Paul delivers every time.
+
+## Amplifiers
+
+- **Vox AC30**  
+  This amp is my go-to for its chimey cleans and natural overdrive when pushed hard. It pairs wonderfully with most of my pedals.
+
+- **Marshall DSL40CR**  
+  For those high-gain moments, the DSL40CR provides plenty of crunch and sustain.
+
+## Pedalboard
+
+Here’s where the magic happens:
+
+- **Boss TU-3 Tuner**: Always start with a reliable tuner.
+- **Ibanez Tube Screamer TS9**: A classic for boosting solos and adding creamy overdrive.
+- **Strymon BigSky**: My favorite reverb pedal, perfect for ambient soundscapes.
+- **Electro-Harmonix Memory Man**: Adds warm, analog delay to my tone.
+- **MXR Phase 90**: For some extra movement and texture in clean passages.
+- **Boss RC-5 Loop Station**: Great for building layers during practice and live gigs.
+
+## Strings and Accessories
+
+- **Ernie Ball Regular Slinky Strings (10-46)**  
+  These strings strike the perfect balance between tone and playability.
+
+- **Dunlop Tortex Picks (0.73mm)**  
+  Durable and grippy, these picks have been my favorite for years.
+
+---
+
+This rig lets me tackle anything from smooth blues solos to heavy rock riffs. What does your guitar setup look like? Let me know in the comments!
