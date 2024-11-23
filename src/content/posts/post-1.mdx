@@ -9,11 +9,21 @@ image:
 tags: ["guitar", "gear", "setup"]
 ---
 
+import { Image } from "astro:assets";
+
 # Dream Guitar Rig Setup
 
 Published on: 2024-11-21
 
 As a guitarist, my rig plays a huge role in shaping my sound. Here’s a breakdown of my dream guitar setup for both live performances and studio work.
+
+<Image
+  src={frontmatter.image.url}
+  alt={frontmatter.image.alt}
+  width={2070}
+  height={1380}
+  class="w-full rounded-lg shadow-lg my-8"
+/>
 
 ## Guitars
 

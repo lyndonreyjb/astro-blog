@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import BlogPost from "@/components/BlogPost.astro";
 import Tags from "@/components/Tags.astro";
+import { fade } from "astro:transitions";
 
 interface Props {
   page: {
@@ -49,7 +50,10 @@ const tag = "";
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 px-4 py-6">
+    <main
+      class="flex-1 px-4 py-6"
+      transition:animate={fade({ duration: "0.7s" })}
+    >
       <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
           page.data.map((post) => (
@@ -69,12 +73,12 @@ const tag = "";
       </ul>
 
       <!-- Pagination Navigation -->
-      <nav class="flex justify-between items-center mt-8 text-neutral-900">
+      <nav class="flex justify-between items-center mt-8">
         {
           page.url.prev ? (
             <a
               href={page.url.prev}
-              class="px-4 py-2 bg-yellow-400  rounded hover:bg-yellow-500 "
+              class=" text-neutral-900 px-4 py-2 bg-yellow-400  rounded hover:bg-yellow-500 "
             >
               Previous
             </a>
@@ -85,7 +89,7 @@ const tag = "";
           page.url.next ? (
             <a
               href={page.url.next}
-              class="px-4 py-2 bg-yellow-400  rounded hover:bg-yellow-500 "
+              class="text-neutral-900 px-4 py-2 bg-yellow-400  rounded hover:bg-yellow-500 "
             >
               Next
             </a>

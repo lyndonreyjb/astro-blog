@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BlogPost from "@/components/BlogPost.astro";
 import Layout from "../../../layouts/Layout.astro";
 import Tags from "@/components/Tags.astro";
+import { fade } from "astro:transitions";
 
 export async function getStaticPaths({ paginate }) {
   const allPosts = await getCollection("posts");
@@ -47,7 +48,10 @@ const { tag } = Astro.params;
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 px-4 py-6">
+    <main
+      class="flex-1 px-4 py-6"
+      transition:animate={fade({ duration: "0.7s" })}
+    >
       <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
           page.data.map((post) => (
