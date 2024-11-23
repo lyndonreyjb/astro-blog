@@ -15,7 +15,7 @@
     "@astrojs/react": "^3.6.2",
     "@astrojs/rss": "^4.0.9",
     "@astrojs/tailwind": "^5.1.2",
-    "@fontsource-variable/lexend": "^5.1.1",
+    "@fontsource-variable/grandstander": "^5.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-switch": "^1.1.1",

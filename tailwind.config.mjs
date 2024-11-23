@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Lexend Variable", ...defaultTheme.fontFamily.sans],
+        sans: ["Grandstander Variable", ...defaultTheme.fontFamily.sans],
       },
       borderRadius: {
         lg: "var(--radius)",
