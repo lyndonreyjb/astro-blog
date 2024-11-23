@@ -1,25 +1,32 @@
 ---
+import { Image } from "astro:assets";
+import moon from "../../public/half-moon.svg";
+import sun from "../../public/full-sun.svg";
 ---
+
 <button id="themeToggle" class="p-2 rounded-full transition-all">
   <!-- Sun emoji -->
-  <span class="sun text-2xl dark:hidden">☀️</span>
-
+  <span class="sun dark:hidden">
+    <Image height={30} src={sun} alt="My Happy SVG" />
+  </span>
   <!-- Moon emoji -->
-  <span class="moon text-2xl hidden dark:inline">🌜</span>
+  <span class="moon text-2xl hidden dark:inline">
+    <Image height={30} src={moon} alt="My Happy SVG" />
+  </span>
 </button>
 
-
-
-
 <script>
-  document.addEventListener('astro:page-load', () => {
+  document.addEventListener("astro:page-load", () => {
     // Check for a stored theme, default to "dark" if no theme is saved
     const theme = (() => {
-      if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      if (
+        typeof localStorage !== "undefined" &&
+        localStorage.getItem("theme")
+      ) {
         return localStorage.getItem("theme");
       }
       // Set default theme to dark if no user preference is stored
-      return "dark"; 
+      return "dark";
     })();
 
     // Apply the initial theme
@@ -55,11 +62,11 @@
 
 <script is:inline>
   function applyTheme() {
-    localStorage.theme === 'dark'
+    localStorage.theme === "dark"
       ? document.documentElement.classList.add("dark")
       : document.documentElement.classList.remove("dark");
   }
 
-  document.addEventListener('astro:after-swap', applyTheme);
+  document.addEventListener("astro:after-swap", applyTheme);
   applyTheme();
 </script>

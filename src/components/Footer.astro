@@ -1,5 +1,6 @@
 ---
-
+import { Image } from "astro:assets";
+import logo from "../../public/logo.png";
 ---
 
 <footer
@@ -8,7 +9,15 @@
   <div class="container mx-auto px-6">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- Left Side: Copyright & Branding -->
-      <div class="space-y-4">
+      <div
+        class="flex flex-col sm:items-start items-center justify-center space-y-4"
+      >
+        <a href="/" class="flex items-center">
+          <Image height={50} width={50} src={logo} alt="PedalShare" />
+          <p class="text-3xl font-bold hover:opacity-80 transition-opacity">
+            PedalShare
+          </p>
+        </a>
         <small class="text-base">
           Copyright &copy; <span id="copyright"></span> | All rights reserved
         </small>

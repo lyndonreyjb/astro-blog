@@ -2,6 +2,8 @@
 import ThemeIcon from "./ThemeIcon.astro";
 import MobileNav from "@/components/MobileNav";
 import { navData } from "@/data/nav";
+import { Image } from "astro:assets";
+import logo from "../../public/logo.png";
 ---
 
 <header
@@ -9,9 +11,10 @@ import { navData } from "@/data/nav";
 >
   <div class="mx-auto flex w-full items-center px-3 md:px-6">
     <a href="/" class="mr-6 flex items-center">
-      <span class="text-2xl font-bold hover:opacity-80 transition-opacity"
-        >Pedal🎸Share</span
-      >
+      <Image height={50} width={50} src={logo} alt="PedalShare" />
+      <p class="text-2xl font-bold hover:opacity-80 transition-opacity">
+        PedalShare
+      </p>
     </a>
 
     <!-- Desktop Navigation -->
