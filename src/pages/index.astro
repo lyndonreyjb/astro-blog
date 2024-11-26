@@ -1,6 +1,74 @@
 ---
+import BlogPost from "@/components/BlogPost.astro";
 import Layout from "../layouts/Layout.astro";
 const pageTitle = "Pedal Share";
+import { getCollection } from "astro:content";
+
+const allPosts = (await getCollection("posts")).slice(0, 3);
 ---
 
-<Layout pageTitle={pageTitle} />
+<Layout pageTitle={pageTitle}>
+  <main class="min-h-screen">
+    <div class="container mx-auto px-4 py-12">
+      {/* Hero Section */}
+      <section class="text-center mb-16">
+        <h1 class="text-5xl font-bold mb-6">
+          Welcome to <span class="text-yellow-400">PedalShare</span>
+        </h1>
+        <p class="text-xl max-w-2xl mx-auto mb-8">
+          Your ultimate destination for guitar pedal insights, reviews, and
+          inspiration. Explore the world of tone-shaping magic and discover your
+          perfect sound.
+        </p>
+        <a
+          href="/pedalboards"
+          class="mt-8 inline-flex items-center px-6 py-3 text-base font-medium text-neutral-900 bg-yellow-400 rounded-md hover:bg-yellow-00 transition-colors duration-200"
+        >
+          Check it now
+        </a>
+      </section>
+
+      {/* Featured Posts Section */}
+      <section class="mb-16">
+        <h2 class="text-3xl font-semibold text-center mb-10">
+          Featured Pedal Insights
+        </h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {
+            allPosts.map((post) => (
+              <li class="flex justify-center">
+                <BlogPost
+                  url={`/posts/${post.slug}/`}
+                  title={post.data.title}
+                  image={post.data.image?.url || ""}
+                  alt={post.data.image?.alt || "Default Alt Text"}
+                  description={post.data.description}
+                  date={post.data.pubDate}
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      {/* About Section */}
+      <section
+        class="bg-neutral-100 dark:bg-neutral-900 rounded-lg p-5 py-12 sm:p-12 text-center"
+      >
+        <h2 class="text-3xl font-semibold mb-6">What is PedalShare?</h2>
+        <p class="sm:text-xl max-w-3xl mx-auto mb-8">
+          PedalShare is more than just a blog - it's a community for guitar
+          enthusiasts passionate about crafting their perfect tone. We dive deep
+          into pedal setups, share expert insights, and help you explore the
+          endless possibilities of guitar effects.
+        </p>
+        <a
+          href="/about"
+          class="mt-5 inline-flex items-center px-6 py-3 text-base font-medium text-neutral-900 bg-yellow-400 rounded-md hover:bg-yellow-00 transition-colors duration-200"
+        >
+          Learn More About Us
+        </a>
+      </section>
+    </div>
+  </main>
+</Layout>
